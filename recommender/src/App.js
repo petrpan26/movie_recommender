@@ -12,7 +12,7 @@ import CheckIcon from "@mui/icons-material/Check";
 import InfoIcon from "@mui/icons-material/Info";
 import Info from "@mui/icons-material/Info";
 
-let SERVER_API = process.env.SERVER_API;
+let SERVER_API = process.env.REACT_APP_SERVER_API;
 
 function Copyright() {
   return (
