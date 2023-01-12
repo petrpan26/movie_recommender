@@ -12,6 +12,8 @@ import CheckIcon from "@mui/icons-material/Check";
 import InfoIcon from "@mui/icons-material/Info";
 import Info from "@mui/icons-material/Info";
 
+let SERVER_API = process.env.SERVER_API;
+
 function Copyright() {
   return (
     <Typography variant="body2" color="text.secondary" align="center">
@@ -27,7 +29,7 @@ function Copyright() {
 
 const filterData = async (query) => {
   try {
-    let data = await axios.post("http://localhost:5000/find_title", {
+    let data = await axios.post(`${SERVER_API}/find_title`, {
       text: query,
     });
     return data.data;
@@ -49,7 +51,7 @@ const toggleMovie = (movie, selectedMovies, setSelectedMovies) => {
 
 const generateRecommendations = (selectedMovies, setRecommendations) => {
   axios
-    .post("http://localhost:5000/generate_recommendation", {
+    .post(`${SERVER_API}/generate_recommendation`, {
       movies: Array.from(selectedMovies),
     })
     .then((data) => {
